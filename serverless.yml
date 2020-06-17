@@ -1,0 +1,57 @@
+
+service: serverlessfrm
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello/get
+          method: get
+  hello2:
+    handler: handler.hello2
+    events:
+      - http:
+          path: hello2/{proxy+}
+          method: get
+  hello3:
+    handler: handler.serv
+    events:
+      - http:
+          path: hello3/{proxy+}
+          method: GET
+          cors: true
+  hello4:
+    handler: handler.hello4
+    events:
+      - http:
+          path: hello4/{proxy+}
+          method: get
+  hello5:
+    handler: handler.hello5
+    events:
+      - http: 
+          path: /
+          method: ANY
+          cors: true
+      - http: 
+          path: /{proxy+}
+          method: ANY
+          cors: true
+  # app:
+  #   handler: app.srv # reference the file and exported method
+  #   events: # events trigger lambda functions
+      # - http: # this is an API Gateway HTTP event trigger
+      #     path: srv/gt
+      #     method: ANY
+      #     cors: true
+      # - http: # all routes get proxied to the Express router
+      #     path: /{proxy+}
+      #     method: ANY
+      #     cors: true
+plugins:
+  - serverless-offline

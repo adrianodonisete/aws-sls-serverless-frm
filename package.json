@@ -1,0 +1,18 @@
+{
+  "name": "serverlessfrm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^6.4.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "serverless-http": "^2.5.0"
+  }
+}
